@@ -273,6 +273,7 @@ SERVER_METHODS: tuple[str, ...] = (
     "vibebot/localTools",
     "storage/usage/refresh",
     "telemetry/record",
+    "templates/open",
     "session/turn/enqueue",
     "session/turn/queue/edit/cancel",
     "session/turn/queue/edit/abandon",

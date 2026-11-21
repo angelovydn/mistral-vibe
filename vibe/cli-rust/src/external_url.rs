@@ -40,6 +40,22 @@ fn open_checked(url: &str) {
     }
 }
 
+/// A workspace gallery URL includes a secret and must stay on the local machine.
+pub fn open_private_loopback(url: &str) -> bool {
+    let valid = !url.chars().any(char::is_control)
+        && url::Url::parse(url).is_ok_and(|u| {
+            u.scheme() == "http"
+                && u.host_str() == Some("127.0.0.1")
+                && u.port().is_some()
+                && u.username().is_empty()
+                && u.password().is_none()
+        });
+    if valid && !record(url) {
+        let _ = open_system(url);
+    }
+    valid
+}
+
 pub fn is_safe(url: &str) -> bool {
     let scheme = url.split_once(':').map(|(scheme, _)| scheme);
     matches!(scheme, Some(scheme) if WEB_SCHEMES.iter().chain(&EDITOR_SCHEMES).any(|safe| scheme.eq_ignore_ascii_case(safe)))

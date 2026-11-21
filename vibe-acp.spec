@@ -36,6 +36,7 @@ datas = [
 ] + harness_deps[0]
 # Built-in plugins are discovered on disk next to vibe.plugins.builtins.
 datas += collect_data_files('vibe.plugins.builtins')
+datas += collect_data_files('vibe.app_server.templates_gallery', includes=['assets/**/*', 'web/**/*'])
 
 a = Analysis(
     ['vibe/acp/entrypoint.py'],

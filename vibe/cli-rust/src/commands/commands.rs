@@ -117,6 +117,7 @@ const COMMANDS: &[Command] = &[
     cmd(&["/plugins"], "Display the plugins this session is running", false),
     cmd(&["/reload-plugins"], "Re-pin this session's plugins and report what changed", false),
     cmd(&["/skills"], "Browse and manage skills", true).after_jobs(),
+    cmd(&["/templates"], "Open app UI templates in your browser", false),
     cmd(&["/trusted-folders"], "Browse trusted and untrusted folders, toggle or forget one", true),
     cmd(&["/voice"], "Configure voice settings", true).after_jobs(),
     cmd(&["/agent"], "List agents, or switch the session to one", false).args("[name]"),

@@ -101,6 +101,7 @@ pub mod method {
     pub const SETUP_STORE_CREDENTIAL: &str = "setup/store-credential";
     pub const SETUP_SUBMIT_CHOICES: &str = "setup/submit-choices";
     pub const SESSION_LOG_READ: &str = "session/log/read";
+    pub const TEMPLATES_OPEN: &str = "templates/open";
     /// The `/context` breakdown of what fills the context window.
     pub const SESSION_CONTEXT_READ: &str = "session/context/read";
     /// Live session logs paged into the `/debug` console.

@@ -17,6 +17,7 @@ pub mod shell;
 pub mod simple;
 pub mod stress;
 pub mod submission;
+mod templates;
 mod thinking;
 
 pub use commands::{

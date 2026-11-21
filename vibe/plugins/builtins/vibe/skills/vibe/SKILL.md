@@ -1527,6 +1527,9 @@ session's model.
   or a filesystem root). Trusting a folder trusts every folder inside it,
   except those explicitly untrusted, which the view lists. Changes apply the
   next time Vibe starts; running sessions keep the project config they loaded.
+- `/templates` - Open the app UI template gallery for the current workspace.
+  Preview a starter and use it to create an editable project. The terminal
+  also shows the local link if a browser cannot open automatically.
 - `/skills` - Browse and manage skills. My Skills shows one row per installed
   skill, sorted by name, the one its name resolves to: enabled (`●`) or disabled (`○`), Scope,
   Source (Local, Shared or Plugin) and, for shared skills, the pinned version,

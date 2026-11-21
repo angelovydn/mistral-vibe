@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Templates · Mistral Vibe</title>
+  <link rel="icon" href="/vibe.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/gallery.css">
+  <script type="module" src="/gallery.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav-inner">
+      <span class="brand"><img src="/vibe.svg" alt="" width="31" height="29">Mistral Vibe</span>
+      <nav aria-label="Main navigation"><a class="nav-tab" href="#templates" aria-current="page">Templates</a></nav>
+      <span class="workspace" id="workspace" hidden>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5.5A1.5 1.5 0 0 1 4.5 4h5l2.5 3H20a1 1 0 0 1 1 1v10.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5V7Z"/></svg>
+        <span></span>
+      </span>
+    </div>
+  </header>
+  <main id="templates">
+    <header class="heading">
+      <h1>App templates<span aria-hidden="true">.</span></h1>
+      <p>Explore a working app, then make it yours with React and TypeScript.</p>
+    </header>
+    <p class="load-status" id="catalog-status" role="status">Loading templates…</p>
+    <section class="catalog" id="catalog" aria-label="App templates"></section>
+  </main>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="stage" aria-hidden="true" inert>
+        <div class="mini-window">
+          <iframe class="thumbnail" title="" tabindex="-1" referrerpolicy="no-referrer"></iframe>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-copy"><h2></h2><p></p></div>
+        <div class="actions">
+          <button type="button" class="button secondary preview-button">Preview</button>
+          <button type="button" class="button primary create-button">Use template <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <dialog class="preview-dialog" id="preview" aria-labelledby="preview-title">
+    <div class="preview-bar">
+      <button type="button" class="button secondary close-preview"><span aria-hidden="true">←</span> Back</button>
+      <h2 id="preview-title"></h2>
+      <button type="button" id="preview-create" class="button primary">Use template <span aria-hidden="true">→</span></button>
+    </div>
+    <iframe id="live-preview" title="App preview" referrerpolicy="no-referrer"></iframe>
+  </dialog>
+
+  <dialog class="create-dialog" id="create" aria-labelledby="create-title">
+    <button type="button" class="icon-button dismiss" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    <h2 id="create-title"></h2>
+    <form id="project-form">
+      <label for="folder">Project folder</label>
+      <input id="folder" name="folder" type="text" required autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="destination project-error">
+      <p class="destination" id="destination"></p>
+      <p class="error" id="project-error" role="alert" hidden></p>
+      <div class="form-actions">
+        <button type="button" class="button secondary dismiss">Cancel</button>
+        <button type="submit" class="button primary" id="submit">Create project <span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+    <div id="success" hidden>
+      <p class="created-path" id="created-path"></p>
+      <p class="run-label">Run from your Vibe workspace</p>
+      <pre><code id="run-commands"></code></pre>
+      <div class="form-actions">
+        <button type="button" class="button secondary" id="copy-commands">Copy commands</button>
+        <button type="button" class="button primary dismiss">Done</button>
+      </div>
+      <p class="sr-only" role="status" id="copy-status"></p>
+    </div>
+  </dialog>
+</body>
+</html>

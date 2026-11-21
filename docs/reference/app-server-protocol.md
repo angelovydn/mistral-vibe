@@ -836,6 +836,13 @@ programmatic mode, and ACP translates protocol content and callbacks.
 Clients own rendering and explicitly local facilities, while attached session
 mutations use public APIs.
 
+### App UI templates
+
+`templates/open` accepts `{ "sessionId": "…" }` and returns `{ "url": "…" }`
+for the attached session's workspace. The URL grants access to its local gallery
+until this app server closes. Clients should open it in the user's browser and
+provide the link when the browser is unavailable. Treat the URL as private.
+
 ### Storage usage
 
 `storage/usage/read`, `storage/usage/refresh` and the `storage/usage/updated`

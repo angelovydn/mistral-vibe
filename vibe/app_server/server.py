@@ -81,6 +81,7 @@ from vibe.app_server._session_peers import SessionPeerError
 from vibe.app_server._session_spawn import SessionSpawnError
 from vibe.app_server._setup_oidc import SetupOidcHandler
 from vibe.app_server._storage_usage import StorageUsageService, touch_stale_marker
+from vibe.app_server._templates import Templates
 from vibe.app_server._vibe_bot import (
     VIBE_BOT_ARCHIVE_LOCAL_METHOD,
     VIBE_BOT_CLIENT_ID_FILE,
@@ -439,6 +440,7 @@ class AppServer:
         self._connector_catalog_service = connector_catalog_service
         self._plugin_catalog_service = plugin_catalog_service
         self._imports_service = imports_service
+        self._templates = Templates()
         self._storage_usage = storage_usage
         self._vibe_bot = self._new_vibe_bot(vibe_bot_sessions)
         # This connection's storage/usage/updated, from its first storage call.
@@ -778,6 +780,10 @@ class AppServer:
                 serve_task.cancel()
             errors = await self._stop_background_tasks(current)
             try:
+                await self._templates.close()
+            except BaseException as exc:
+                errors.append(exc)
+            try:
                 await self._setup_oidc.close()
             except BaseException as exc:
                 errors.append(exc)
@@ -1071,6 +1077,8 @@ class AppServer:
     ) -> DispatchResult:
         if method not in SERVER_METHODS:
             raise method_not_found(method)
+        if method == "templates/open":
+            return await self._templates.open(raw_params, self._root)
         if method.startswith("setup/oidc-"):
             return DispatchResult(
                 await self._setup_oidc.dispatch(

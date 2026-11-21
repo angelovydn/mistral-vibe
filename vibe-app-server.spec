@@ -48,6 +48,8 @@ datas = collect_data_files(
     includes=[
         "core/prompts/*.md",
         "core/tools/builtins/prompts/*.md",
+        "app_server/templates_gallery/web/**/*",
+        "app_server/templates_gallery/assets/**/*",
     ],
 )
 datas += [("vibe/core/tools/builtins/*.py", "vibe/core/tools/builtins")]

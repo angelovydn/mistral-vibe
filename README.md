@@ -19,6 +19,8 @@
 
 Mistral Vibe is an open-source coding agent for your terminal. Describe what you want, and it reads your code, edits files and runs commands, asking before it does anything risky.
 
+This fork adds `/templates`, a browser gallery for creating React and TypeScript projects in your workspace. [Preview the four starters and run the fork](docs/templates.md).
+
 **Read the [documentation](https://docs.mistral.ai/vibe/code/overview) to learn more.**
 
 ## Get started
