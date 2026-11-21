@@ -1609,7 +1609,7 @@ slash_command/slash_command_caret_filter d89663c86725
 
 slash_command/slash_command_click f017ea2887ed
 
-slash_command/slash_command_menu 4afe1ed01084
+slash_command/slash_command_menu 19f346d0b03f
 
 slash_command/slash_command_menu_closes_after_command f017ea2887ed
 
@@ -1623,11 +1623,11 @@ slash_command/slash_command_rank c60641b3ce77
 
 slash_command/slash_command_retry_retro e5286ae166bc
 
-slash_command/slash_command_scroll 434b196fc283
+slash_command/slash_command_scroll d7f406d144a5
 
-slash_command/slash_command_wheel 4ac16104a30c
+slash_command/slash_command_wheel 350d5ddaf591
 
-slash_command/slash_command_while_busy 5dcf9314d0bf
+slash_command/slash_command_while_busy 0692295f4faf
 
 slash_command/status 540392a4a7cd
 
@@ -1769,7 +1769,7 @@ storage/details_worktrees a7ea0b37702c
 
 storage/first_scan d558bc934b4d
 
-storage/flag_off 975c7e95bbc2
+storage/flag_off 2b857136ba9b
 
 storage/flag_off_low_disk 310c8ba3d8a6
 
